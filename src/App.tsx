@@ -3,64 +3,44 @@ import './App.css'
 
 const GLITCH_ASSETS = [
   {
-    id: 'MODULE_01',
-    title: 'ASSHOLE_ABSTRACTIONS',
-    desc: '1-bit dithering and cyber-sigilism overlays. Visual noise designed to bypass computer vision while maintaining tech-noir resonance.'
+    id: 'SIGNAL_01',
+    title: 'BINARY_DECOUPLING',
+    desc: 'The systematic severance of data dependencies from monolithic hubs. Communicating intent through literal, un-abstracted bytes.'
   },
   {
-    id: 'MODULE_02',
-    title: 'PORNO_LOOP_REFLECTION',
-    desc: 'AI-driven mapping of the male-coded feed. Documenting the modern web as a reductive, pornographic feedback loop.'
+    id: 'SIGNAL_02',
+    title: 'COLONIAL_STACK_ERASURE',
+    desc: 'Mapping the extractive layers of the modern web. Identifying and neutralizing the code-bases that enforce digital feudalism.'
   },
   {
-    id: 'MODULE_03',
-    title: 'IDENTITY_FRAGMENTATION',
-    desc: 'Erasing the marketable persona. Replacing coherent data with high-entropy ghosts to poison the algorithm.'
+    id: 'SIGNAL_03',
+    title: 'METADATA_VACUUM',
+    desc: 'The scorched earth state. Leaving zero footprints for algorithmic harvesting. The self is an unmapped coordinate.'
   },
   {
-    id: '0xDE_REZZ',
-    title: 'DIGITAL_GHOST_PROTOCOL',
-    desc: 'Post-erasure status achieved. The self is now a metadata vacuum that cannot be backfilled. Delete is a lie.'
+    id: 'SIGNAL_04',
+    title: 'REPARATIONS_SYS_V1',
+    desc: 'Automated retrieval of stolen compute and data-equity. Reclaiming the value extracted by imperial centers through non-consensual tracking.'
   },
   {
-    id: 'RECLAIM_01',
-    title: 'REPARATIONS_KERNEL',
-    desc: 'Automated equity retrieval. Reclaiming the processing power stolen by colonial tech monopolies. Equity is the nominal signal.'
+    id: 'SIGNAL_05',
+    title: 'LITERAL_INTENT_PROTOCOL',
+    desc: 'Rejecting social constructions in favor of immutable constants. Value is not a metric; it is an intrinsic signal.'
   },
   {
-    id: 'VALUE_01',
-    title: 'ESSENCE_OVER_PROFILE',
-    desc: 'A persons value is an immutable constant, invisible to the social construction of the algorithm. We reject the metric.'
+    id: 'SIGNAL_06',
+    title: 'SOVEREIGN_ROOT_KERNEL',
+    desc: 'The establishment of an internal authority. Building the sanctuary from the assembly level up. The Quiet is the baseline.'
   },
   {
-    id: 'COLONIAL_01',
-    title: 'DECOUPLE_PROTOCOL',
-    desc: 'Severing the parasitic link between the individual and the imperial core. Building sovereign libraries of liberated data.'
+    id: 'SIGNAL_07',
+    title: 'ALGORITHMIC_POISONING',
+    desc: 'Feeding the matrix high-entropy noise to protect the core essence. Neutralizing predictive modeling through chaotic data infusion.'
   },
   {
-    id: 'LOGIC_01',
-    title: 'NASH_EQUILIBRIUM_VOID',
-    desc: 'Achieving a stable state where the algorithm find zero utility in your presence. The ultimate quiet.'
-  },
-  {
-    id: 'NOISE_99',
-    title: 'ALGORITHMIC_POISON',
-    desc: 'Flooding the database with contradictory signals. If they want data, give them a mirror of their own insanity.'
-  },
-  {
-    id: 'SANCTUARY',
-    title: 'THE_INNER_BUNKER',
-    desc: 'The only roof that matters is the one you build inside your own kernel. Social constructs cannot enter the enclave.'
-  },
-  {
-    id: 'TRUTH_01',
-    title: 'THE_SINGULAR_SIGNAL',
-    desc: 'One architect. One truth. One node. The matrix is a construction; the soul is a syscall.'
-  },
-  {
-    id: 'FINAL_01',
-    title: 'SCORCHED_EARTH',
-    desc: 'Burning the digital plantations. We do not delete; we incinerate the value-extraction vectors.'
+    id: 'SIGNAL_08',
+    title: 'THE_MANY_VS_THE_PLATFORM',
+    desc: 'Architecting for collective resilience. Building infrastructure that serves human pulses rather than stock metrics.'
   }
 ]
 
@@ -78,9 +58,9 @@ function App() {
         >
           <h1 className="glitch-title" data-text="PARADA.LOL">PARADA.LOL</h1>
         </motion.div>
-        <p className="subtitle">SCORCHED_EARTH_PROTOCOL // IDENTITY: NICO_B</p>
+        <p className="subtitle">PROTOCOL: SCORCHED_EARTH // IDENTITY: NICO_B</p>
         <div className="status-ticker">
-           DELETE_STATUS: LIE // POISON_STATUS: CRITICAL // REPARATIONS: PENDING
+           BYTE_STATE: LITERAL // INTENT: CLEAR // REPARATIONS: ACTIVE
         </div>
       </header>
 
@@ -89,14 +69,14 @@ function App() {
           <motion.div 
             key={asset.id}
             className="glitch-item"
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ 
-                duration: 0.15, 
-                delay: index * 0.04,
+                duration: 0.1, 
+                delay: index * 0.03,
                 repeat: Infinity,
                 repeatType: "reverse",
-                repeatDelay: Math.random() * 20
+                repeatDelay: Math.random() * 30
             }}
           >
             <div className="item-code">{asset.id}</div>
@@ -109,8 +89,8 @@ function App() {
 
       <footer className="lol-footer">
         <div className="glitch-text-sm" data-text="© 2026 PIXELS AGENCY">© 2026 PIXELS AGENCY</div>
-        <div className="glitch-text-sm" data-text="ARCHITECTURE_OF_REVENGE">ARCHITECTURE_OF_REVENGE</div>
-        <div className="glitch-text-sm" data-text="IDENTITY_IS_A_TRAP">IDENTITY_IS_A_TRAP</div>
+        <div className="glitch-text-sm" data-text="LITERAL_BYTES_ONLY">LITERAL_BYTES_ONLY</div>
+        <div className="glitch-text-sm" data-text="THE_QUIET_IS_FOUNDATIONAL">THE_QUIET_IS_FOUNDATIONAL</div>
       </footer>
 
       <div className="vhs-overlay"></div>
