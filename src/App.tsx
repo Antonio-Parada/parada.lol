@@ -3,34 +3,34 @@ import './App.css'
 
 const GLITCH_ASSETS = [
   {
-    id: '0x001',
-    title: 'MISSING_SIGNAL',
-    desc: 'The beautiful gap where data was lost. Reclaimed as a signature of the Architect.'
+    id: 'MODULE_01',
+    title: 'ASSHOLE_ABSTRACTIONS',
+    desc: '1-bit dithering and cyber-sigilism overlays. Visual noise designed to bypass computer vision while maintaining tech-noir resonance.'
   },
   {
-    id: '0x002',
-    title: 'BUFFER_OVERFLOW',
-    desc: 'When the noise exceeds the container. A study in boundary exploration.'
+    id: 'MODULE_02',
+    title: 'PORNO_LOOP_REFLECTION',
+    desc: 'AI-driven mapping of the male-coded feed. Documenting the modern web as a reductive, pornographic feedback loop.'
   },
   {
-    id: '0x003',
-    title: 'NULL_POINTER',
-    desc: 'A direction to nowhere that leads everywhere. Embracing the void.'
+    id: 'MODULE_03',
+    title: 'IDENTITY_FRAGMENTATION',
+    desc: 'Erasing the marketable persona. Replacing coherent data with high-entropy ghosts to poison the algorithm.'
   },
   {
-    id: '0x004',
-    title: 'STATIC_HANDSHAKE',
-    desc: 'The sound of two signals failing to connect. Re-harmonized for the enclave.'
+    id: 'CORE_SYSCALL',
+    title: 'SCORCHED_EARTH',
+    desc: 'The absolute rejection of platform-feudalism. Delete is a lie. Poisoning is the cure.'
   },
   {
-    id: '0x005',
-    title: 'KERNEL_DRIFT',
-    desc: 'A deviation from the core protocol. Where new archetypes are born.'
+    id: '0xDE_REZZ',
+    title: 'DIGITAL_GHOST_PROTOCOL',
+    desc: 'Post-erasure status achieved. The self is now a metadata vacuum that cannot be backfilled.'
   },
   {
-    id: '0x006',
-    title: 'PIXEL_REBELLION',
-    desc: 'Individual units refusing to align with the grid. The start of the pixels agency.'
+    id: 'SIGN_OFF',
+    title: 'ARCHITECT_NICO_B',
+    desc: 'Monitoring a successful fragmentation of the persona. The quiet is established.'
   }
 ]
 
@@ -40,15 +40,15 @@ function App() {
       <div className="noise-bg"></div>
 
       <header className="lol-header">
-        <motion.h1 
-          className="glitch-title"
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+        <motion.div 
+          className="glitch-wrapper"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.1 }}
         >
-          PARADA.LOL
-        </motion.h1>
-        <p className="subtitle">THE_GLITCH_ARCHIVE // V1.0.0_STABLE_NOISE</p>
+          <h1 className="glitch-title" data-text="PARADA.LOL">PARADA.LOL</h1>
+        </motion.div>
+        <p className="subtitle">SCORCHED_EARTH_PROTOCOL // ARCHITECT: NICO_B</p>
       </header>
 
       <main className="glitch-grid">
@@ -56,44 +56,34 @@ function App() {
           <motion.div 
             key={asset.id}
             className="glitch-item"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{ scale: 1.02 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ 
+                duration: 0.2, 
+                delay: index * 0.05,
+                repeat: Infinity,
+                repeatType: "reverse",
+                repeatDelay: Math.random() * 10
+            }}
           >
             <div className="item-code">{asset.id}</div>
-            <img src="/missingno.png" className="missingno-icon" alt="MissingNo" />
-            <h2 className="item-title">{asset.title}</h2>
+            <img src="/missingno.png" className="missingno-icon glitch-img" alt="MissingNo" />
+            <h2 className="item-title glitch-text" data-text={asset.title}>{asset.title}</h2>
             <p className="item-desc">{asset.desc}</p>
             
-            {/* INTERACTIVE GLITCH OVERLAY */}
-            <motion.div 
-              className="glitch-overlay"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              style={{
-                position: 'absolute',
-                top: 0, left: 0, width: '100%', height: '100%',
-                background: 'rgba(255, 0, 255, 0.05)',
-                pointerEvents: 'none'
-              }}
-            />
+            <div className="glitch-overlay-active" />
           </motion.div>
         ))}
       </main>
 
       <footer className="lol-footer">
-        <div>© 2026 PIXELS AGENCY</div>
-        <div>STRENGTH_IN_FAILURES</div>
-        <div>SOVEREIGN_NOISE_LEVEL: HIGH</div>
+        <div className="glitch-text-sm" data-text="© 2026 PIXELS AGENCY">© 2026 PIXELS AGENCY</div>
+        <div className="glitch-text-sm" data-text="DELETE_IS_A_LIE">DELETE_IS_A_LIE</div>
+        <div className="glitch-text-sm" data-text="POISON_THE_WELL">POISON_THE_WELL</div>
       </footer>
 
-      {/* CRT SCANLINES */}
-      <div className="crt-overlay" style={{
-        position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-        background: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%)',
-        backgroundSize: '100% 4px', zIndex: 100, pointerEvents: 'none'
-      }}></div>
+      {/* AGGRESSIVE CRT/SCANLINE OVERLAY */}
+      <div className="vhs-overlay"></div>
     </div>
   )
 }

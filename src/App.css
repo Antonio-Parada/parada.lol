@@ -1,8 +1,9 @@
 :root {
   --pixels-pink: #ff00ff;
   --pixels-green: #00ff00;
+  --pixels-cyan: #00ffff;
   --pixels-bg: #000;
-  --pixels-border: #1a1a1a;
+  --pixels-border: #222;
 }
 
 * {
@@ -23,57 +24,219 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  animation: jitter 0.2s infinite;
 }
 
-/* NOISE BACKGROUND */
+@keyframes jitter {
+  0% { transform: translate(0,0); }
+  10% { transform: translate(-1px, -1px); }
+  20% { transform: translate(1px, 0); }
+  30% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  50% { transform: translate(-1px, 0); }
+  60% { transform: translate(1px, 1px); }
+  70% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 0); }
+  90% { transform: translate(-1px, 1px); }
+  100% { transform: translate(0,0); }
+}
+
 .noise-bg {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.15;
   pointer-events: none;
-  z-index: 10;
+  z-index: 50;
+  animation: grain 0.5s steps(1) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform:translate(0, 0); }
+  10% { transform:translate(-5%, -5%); }
+  20% { transform:translate(-10%, 5%); }
+  30% { transform:translate(5%, -10%); }
+  40% { transform:translate(-5%, 15%); }
+  50% { transform:translate(-10%, 5%); }
+  60% { transform:translate(15%, 0); }
+  70% { transform:translate(0, 10%); }
+  80% { transform:translate(-15%, 0); }
+  90% { transform:translate(10%, 5%); }
 }
 
 /* HEADER */
 .lol-header {
-  padding: 80px 40px;
+  padding: 100px 40px;
   text-align: center;
-  border-bottom: 1px solid var(--pixels-border);
+  border-bottom: 2px solid var(--pixels-border);
   position: relative;
   z-index: 20;
 }
 
 .glitch-title {
-  font-size: 80px;
+  font-size: 100px;
   font-weight: 900;
-  letter-spacing: -5px;
+  letter-spacing: -8px;
   margin: 0;
   text-transform: uppercase;
   position: relative;
-  color: #fff;
+  display: inline-block;
 }
 
 .glitch-title::before,
 .glitch-title::after {
-  content: "PARADA.LOL";
+  content: attr(data-text);
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: var(--pixels-bg);
 }
 
 .glitch-title::before {
-  left: 2px;
-  text-shadow: -2px 0 var(--pixels-pink);
+  left: 3px;
+  text-shadow: -3px 0 var(--pixels-pink);
   clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim 5s infinite linear alternate-reverse;
+  animation: glitch-anim 2s infinite linear alternate-reverse;
 }
 
 .glitch-title::after {
-  left: -2px;
-  text-shadow: -2px 0 var(--pixels-green);
+  left: -3px;
+  text-shadow: -3px 0 var(--pixels-cyan);
   clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim2 5s infinite linear alternate-reverse;
+  animation: glitch-anim2 3s infinite linear alternate-reverse;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--pixels-pink);
+  letter-spacing: 5px;
+  font-weight: 800;
+  margin-top: 30px;
+  text-shadow: 0 0 10px var(--pixels-pink);
+}
+
+/* THE GLITCH GRID */
+.glitch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1px;
+  background-color: var(--pixels-border);
+  flex: 1;
+}
+
+.glitch-item {
+  background-color: var(--pixels-bg);
+  padding: 60px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.glitch-item:hover {
+  border-color: var(--pixels-pink);
+  background-color: #080808;
+}
+
+.item-code {
+  font-size: 10px;
+  opacity: 0.6;
+  margin-bottom: 20px;
+  color: var(--pixels-green);
+}
+
+.item-title {
+  font-size: 32px;
+  font-weight: 900;
+  margin: 0 0 15px 0;
+  color: var(--pixels-green);
+  position: relative;
+}
+
+.item-title::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--pixels-bg);
+    opacity: 0;
+}
+
+.glitch-item:hover .item-title::after {
+    animation: flicker 0.1s infinite;
+    opacity: 1;
+    color: var(--pixels-pink);
+    left: 2px;
+}
+
+@keyframes flicker {
+    0% { transform: skew(0.5deg); }
+    50% { transform: skew(-0.5deg); }
+    100% { transform: skew(0.5deg); }
+}
+
+.item-desc {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.8;
+  max-width: 280px;
+}
+
+.missingno-icon {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+  margin-bottom: 30px;
+  filter: contrast(1.5) brightness(1.2);
+}
+
+.glitch-img {
+    animation: img-glitch 0.2s infinite;
+}
+
+@keyframes img-glitch {
+    0% { filter: hue-rotate(0deg); transform: translate(0,0); }
+    25% { filter: hue-rotate(90deg); transform: translate(2px, -2px); }
+    50% { filter: hue-rotate(180deg); transform: translate(-2px, 2px); }
+    75% { filter: hue-rotate(270deg); transform: translate(1px, 1px); }
+}
+
+/* FOOTER */
+.lol-footer {
+  padding: 60px 40px;
+  border-top: 2px solid var(--pixels-border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 800;
+  background: #000;
+}
+
+.glitch-text-sm {
+    position: relative;
+}
+.glitch-text-sm::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 1px;
+    text-shadow: -1px 0 var(--pixels-pink);
+    opacity: 0.7;
+    animation: glitch-anim 4s infinite linear alternate-reverse;
+}
+
+/* VHS OVERLAY */
+.vhs-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.05));
+  z-index: 100;
+  background-size: 100% 8px, 3px 100%;
+  pointer-events: none;
+  opacity: 0.4;
 }
 
 @keyframes glitch-anim {
@@ -94,96 +257,8 @@ body {
   100% { clip: rect(89px, 9999px, 100px, 0); }
 }
 
-.subtitle {
-  font-size: 14px;
-  color: var(--pixels-pink);
-  letter-spacing: 4px;
-  font-weight: 800;
-  margin-top: 20px;
-}
-
-/* THE GLITCH GRID */
-.glitch-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 1px;
-  background-color: var(--pixels-border);
-  flex: 1;
-}
-
-.glitch-item {
-  background-color: var(--pixels-bg);
-  padding: 60px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: crosshair;
-  transition: background-color 0.2s;
-  position: relative;
-  overflow: hidden;
-}
-
-.glitch-item:hover {
-  background-color: #050505;
-}
-
-.item-code {
-  font-size: 10px;
-  opacity: 0.4;
-  margin-bottom: 20px;
-}
-
-.item-title {
-  font-size: 28px;
-  font-weight: 900;
-  margin: 0 0 15px 0;
-  color: var(--pixels-green);
-}
-
-.item-desc {
-  font-size: 13px;
-  color: #888;
-  line-height: 1.6;
-  max-width: 250px;
-}
-
-.missingno-icon {
-  width: 100px;
-  height: 100px;
-  image-rendering: pixelated;
-  margin-bottom: 30px;
-  filter: grayscale(1) contrast(1.2);
-}
-
-.glitch-item:hover .missingno-icon {
-  filter: none;
-  animation: shake 0.1s infinite;
-}
-
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  25% { transform: translate(-1px, -2px) rotate(-1deg); }
-  50% { transform: translate(-3px, 0px) rotate(1deg); }
-  75% { transform: translate(3px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -1px) rotate(1deg); }
-}
-
-/* FOOTER */
-.lol-footer {
-  padding: 40px;
-  border-top: 1px solid var(--pixels-border);
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  font-weight: 800;
-  opacity: 0.6;
-  letter-spacing: 2px;
-}
-
 @media (max-width: 768px) {
-  .glitch-title { font-size: 40px; letter-spacing: -2px; }
-  .glitch-item { padding: 40px; min-height: 300px; }
+  .glitch-title { font-size: 50px; letter-spacing: -3px; }
+  .glitch-item { padding: 40px; min-height: 400px; }
+  .lol-footer { flex-direction: column; gap: 15px; text-align: center; }
 }
