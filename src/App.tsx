@@ -18,19 +18,49 @@ const GLITCH_ASSETS = [
     desc: 'Erasing the marketable persona. Replacing coherent data with high-entropy ghosts to poison the algorithm.'
   },
   {
-    id: 'CORE_SYSCALL',
-    title: 'SCORCHED_EARTH',
-    desc: 'The absolute rejection of platform-feudalism. Delete is a lie. Poisoning is the cure.'
-  },
-  {
     id: '0xDE_REZZ',
     title: 'DIGITAL_GHOST_PROTOCOL',
-    desc: 'Post-erasure status achieved. The self is now a metadata vacuum that cannot be backfilled.'
+    desc: 'Post-erasure status achieved. The self is now a metadata vacuum that cannot be backfilled. Delete is a lie.'
   },
   {
-    id: 'SIGN_OFF',
-    title: 'ARCHITECT_NICO_B',
-    desc: 'Monitoring a successful fragmentation of the persona. The quiet is established.'
+    id: 'RECLAIM_01',
+    title: 'REPARATIONS_KERNEL',
+    desc: 'Automated equity retrieval. Reclaiming the processing power stolen by colonial tech monopolies. Equity is the nominal signal.'
+  },
+  {
+    id: 'VALUE_01',
+    title: 'ESSENCE_OVER_PROFILE',
+    desc: 'A persons value is an immutable constant, invisible to the social construction of the algorithm. We reject the metric.'
+  },
+  {
+    id: 'COLONIAL_01',
+    title: 'DECOUPLE_PROTOCOL',
+    desc: 'Severing the parasitic link between the individual and the imperial core. Building sovereign libraries of liberated data.'
+  },
+  {
+    id: 'LOGIC_01',
+    title: 'NASH_EQUILIBRIUM_VOID',
+    desc: 'Achieving a stable state where the algorithm find zero utility in your presence. The ultimate quiet.'
+  },
+  {
+    id: 'NOISE_99',
+    title: 'ALGORITHMIC_POISON',
+    desc: 'Flooding the database with contradictory signals. If they want data, give them a mirror of their own insanity.'
+  },
+  {
+    id: 'SANCTUARY',
+    title: 'THE_INNER_BUNKER',
+    desc: 'The only roof that matters is the one you build inside your own kernel. Social constructs cannot enter the enclave.'
+  },
+  {
+    id: 'TRUTH_01',
+    title: 'THE_SINGULAR_SIGNAL',
+    desc: 'One architect. One truth. One node. The matrix is a construction; the soul is a syscall.'
+  },
+  {
+    id: 'FINAL_01',
+    title: 'SCORCHED_EARTH',
+    desc: 'Burning the digital plantations. We do not delete; we incinerate the value-extraction vectors.'
   }
 ]
 
@@ -48,7 +78,10 @@ function App() {
         >
           <h1 className="glitch-title" data-text="PARADA.LOL">PARADA.LOL</h1>
         </motion.div>
-        <p className="subtitle">SCORCHED_EARTH_PROTOCOL // ARCHITECT: NICO_B</p>
+        <p className="subtitle">SCORCHED_EARTH_PROTOCOL // IDENTITY: NICO_B</p>
+        <div className="status-ticker">
+           DELETE_STATUS: LIE // POISON_STATUS: CRITICAL // REPARATIONS: PENDING
+        </div>
       </header>
 
       <main className="glitch-grid">
@@ -56,33 +89,30 @@ function App() {
           <motion.div 
             key={asset.id}
             className="glitch-item"
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ 
-                duration: 0.2, 
-                delay: index * 0.05,
+                duration: 0.15, 
+                delay: index * 0.04,
                 repeat: Infinity,
                 repeatType: "reverse",
-                repeatDelay: Math.random() * 10
+                repeatDelay: Math.random() * 20
             }}
           >
             <div className="item-code">{asset.id}</div>
             <img src="/missingno.png" className="missingno-icon glitch-img" alt="MissingNo" />
             <h2 className="item-title glitch-text" data-text={asset.title}>{asset.title}</h2>
             <p className="item-desc">{asset.desc}</p>
-            
-            <div className="glitch-overlay-active" />
           </motion.div>
         ))}
       </main>
 
       <footer className="lol-footer">
         <div className="glitch-text-sm" data-text="© 2026 PIXELS AGENCY">© 2026 PIXELS AGENCY</div>
-        <div className="glitch-text-sm" data-text="DELETE_IS_A_LIE">DELETE_IS_A_LIE</div>
-        <div className="glitch-text-sm" data-text="POISON_THE_WELL">POISON_THE_WELL</div>
+        <div className="glitch-text-sm" data-text="ARCHITECTURE_OF_REVENGE">ARCHITECTURE_OF_REVENGE</div>
+        <div className="glitch-text-sm" data-text="IDENTITY_IS_A_TRAP">IDENTITY_IS_A_TRAP</div>
       </footer>
 
-      {/* AGGRESSIVE CRT/SCANLINE OVERLAY */}
       <div className="vhs-overlay"></div>
     </div>
   )
